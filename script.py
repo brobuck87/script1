@@ -1,10 +1,10 @@
 import os
+import shutil
 
 
 # List created with all files in tmp
-import stat
-
 user_path = os.listdir("/var/tmp/")
+
 
 # initialize dict
 my_file_dict = {}
@@ -18,10 +18,9 @@ def create_file_dict():
 
 create_file_dict()
 
-# for key, value in my_file_dict.items():
-#     if value.startswith('sysdiagnose'):
-#         os.chmod("/var/tmp/", stat.S_IWRITE)
-#         os.remove("/var/tmp/" + value)
+for key, value in my_file_dict.items():
+    if value.startswith('sysdiagnose'):
+        shutil.rmtree(value)
 
 
 
